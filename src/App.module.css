@@ -1,0 +1,28 @@
+body{
+    color: rgba(254, 254, 255, 0.932);
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image
+{
+    width:500px;
+    margin-top:30px;
+    margin-bottom:25px;
+}
+
+.heading
+{
+    color: rgba(241, 167, 7, 0.938);;
+    font-size: large;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+.footer
+{
+    margin-bottom: 25px;
+}
