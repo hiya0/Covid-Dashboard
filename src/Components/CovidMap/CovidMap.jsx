@@ -4,6 +4,10 @@ import useSWR from "swr";
 import lookup from "country-code-lookup";
 import "./CovidMap.css";
 
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
 import "mapbox-gl/dist/mapbox-gl.css";
 
 mapboxgl.accessToken =
@@ -176,10 +180,29 @@ function CovidMap() {
     }
   }, [data]);
 
+
+  const useStyles = makeStyles({
+    root: {
+      minWidth: 275,
+      margin:20
+    },
+    map:{
+      minWidth:800,
+      minHeight:500,
+      margin:15,
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  });
+
+  const classes = useStyles();
+
   return (
-      <div className="mapContainer">
+    <Card className={classes.root}>
+      <CardContent className={classes.map}>
         <div className="mapBox" ref={mapboxElRef} />
-      </div>
+      </CardContent>
+    </Card>
   );
 }
 
