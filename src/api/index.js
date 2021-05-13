@@ -3,7 +3,7 @@ import axios from 'axios';
 export const fetchDailyData= async() => {
     try{
         const {data}= await axios.get('https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true')
-        const modifiedData=data.map(({infected,recovered,deceased,lastUpdatedApify: date})=>({
+        const modifiedData=data.map(({infected,recovered,deceased,lastUpdateApify: date})=>({
             confirmed:infected,
             recovered,
             deaths:deceased,
