@@ -1,7 +1,23 @@
 import axios from 'axios';
 
-const url='https://covid19.mathdro.id/api';
+export const fetchDailyData= async() => {
+    try{
+        const {data}= await axios.get('https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true')
+        const modifiedData=data.map(({infected,recovered,deceased,lastUpdatedApify: date})=>({
+            confirmed:infected,
+            recovered,
+            deaths:deceased,
+            date
+        }));
+        return modifiedData;
+    } catch(error)
+    {
+        console.log(error)
+    }
+}
 
+//api for map
+const url='https://covid19.mathdro.id/api';
 export const fetchData= async(country) =>{
     let modurl=url;
     if(country)
@@ -18,21 +34,7 @@ export const fetchData= async(country) =>{
     }
 }
 
-export const fetchDailyData= async() => {
-    try{
-        const {data}= await axios.get('https://api.covidtracking.com/v1/us/daily.json')
-        const modifiedData=data.map(({positive,recovered,death,dateChecked: date})=>({
-            confirmed:positive,
-            recovered,
-            deaths:death,
-            date
-        }));
-        return modifiedData;
-    } catch(error)
-    {
-        console.log(error)
-    }
-}
+
 
 export const countries = async() => {
     try{
