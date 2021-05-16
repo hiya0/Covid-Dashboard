@@ -10,7 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 import "mapbox-gl/dist/mapbox-gl.css";
 
-mapboxgl.accessToken = <YOUR MAPBOX TOKEN>
+mapboxgl.accessToken = "<YOUR MAPBOX TOKEN>"
 
 function CovidMap() {
   const mapboxElRef = useRef(null); 
